@@ -67,9 +67,12 @@ public class Course {
 		return this.isFinished;
 	}
 	
-	public double getSumTestGrades() {
-		double sum = this.test1grade + this.test2grade + this.test3grade + this.test4grade;
-		return sum;
+	public double getGradesAverage() {
+		if (this.getIsFinished()) {
+			return (this.test1grade + this.test2grade + this.test3grade + this.test4grade)/4;
+		}
+		 
+		throw new Error("Course not finished yet");
 	}
 
 }

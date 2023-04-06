@@ -22,22 +22,20 @@ public class Student {
 	}
 
 	public void addCourse(Course course) {
-		Integer finishedCourses = 0;
 		
-		for(Course currentCourse : courses) {
-			if (course.getIsFinished()) {
-				finishedCourses++;
-			}
-		}
-		
-		Integer courseLimit = 1 + (finishedCourses * 3);
-		
-		if (this.getCourses().size() < courseLimit) {
-			this.courses.add(course);			
-		} else {
-			throw new Error("User cannot add more courses!");
-		}
+		  Integer finishedCourses = 0;
+		  
+		  for(Course currentCourse : this.getCourses()) { if
+		  (currentCourse.getIsFinished()) { finishedCourses++; } }
+		  
+		  Integer courseLimit = 1 + (finishedCourses * 3);
+		  
+		  
+		  if (this.getCourses().size() < courseLimit) { this.courses.add(course); }
+		  else { throw new Error("User cannot add more courses!"); }
+		 
 		// ao concluir um curso, aumentar o número de espaços para novos cursos em três
+		
 	}
 
 	public Course getCourseByName(String courseName) {
